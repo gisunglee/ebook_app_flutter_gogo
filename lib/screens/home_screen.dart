@@ -1,4 +1,5 @@
 import 'package:ebook_app_flutter_gogo/consttants.dart';
+import 'package:ebook_app_flutter_gogo/screens/details_screen.dart';
 import 'package:ebook_app_flutter_gogo/widgets/book_rating.dart';
 import 'package:ebook_app_flutter_gogo/widgets/reading_card_list.dart';
 import 'package:ebook_app_flutter_gogo/widgets/two_side_rounded_button.dart';
@@ -55,6 +56,16 @@ class HomeScreen extends StatelessWidget {
                           title: "Crushing & Influience",
                           auth: "Gary Venchuk",
                           rating: 4.9,
+                          pressDetails: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailScreen();
+                                },
+                              ),
+                            );
+                          },
                         ),
                         ReadingListCard(
                           image: "assets/images/book-2.png",
@@ -120,12 +131,16 @@ class HomeScreen extends StatelessWidget {
                               children: <Widget>[
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
+                                    padding: const EdgeInsets.only(
+                                        left: 30, right: 20),
                                     child: Row(
                                       children: <Widget>[
                                         Expanded(
                                           child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: <Widget>[
                                               Text(
                                                 "Crushing & Influence",
@@ -145,9 +160,8 @@ class HomeScreen extends StatelessWidget {
                                                 child: Text(
                                                   "Chapter 7 of 10",
                                                   style: TextStyle(
-                                                    fontSize: 10,
-                                                    color: kLightBlackColor
-                                                  ),
+                                                      fontSize: 10,
+                                                      color: kLightBlackColor),
                                                 ),
                                               ),
                                               SizedBox(height: 5),
@@ -164,7 +178,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 Container(
                                   height: 7,
-                                  width: size.width * .6,
+                                  width: size.width * .65,
                                   decoration: BoxDecoration(
                                     color: kProgressIndicator,
                                     borderRadius: BorderRadius.circular(7),
