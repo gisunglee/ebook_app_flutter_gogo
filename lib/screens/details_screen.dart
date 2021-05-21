@@ -42,7 +42,9 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: EdgeInsets.only(top: size.height * .4 - 20),
                   child: Column(
@@ -96,10 +98,80 @@ class DetailScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        height: 180,
+                        width: double.infinity,
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          padding:
+                              EdgeInsets.only(left: 24, top: 24, right: 150),
+                          height: 160,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(29),
+                            color: Color(0xFFFFF8F9),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  style: TextStyle(color: kBlackColor),
+                                  children: [
+                                    TextSpan(
+                                      text:
+                                          "How to Win \nFriends & Influence\n",
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                    TextSpan(
+                                      text: "Grry Venchuk",
+                                      style: TextStyle(color: kLightBlackColor),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  BookRating(score: 4.9),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Expanded(
+                                    child: RoundedButton(
+                                      text: "Read",
+                                      verticalPadding: 5,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Image.asset(
+                          "assets/images/book-3.png",
+                          width: 150,
+                        ),
+                      ),
+                    ],
                   )
                 ],
               ),
             ),
+            // SizedBox(height: 40),
           ],
         ),
       ),
