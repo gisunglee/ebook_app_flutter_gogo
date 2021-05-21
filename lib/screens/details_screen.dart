@@ -14,6 +14,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Stack(
               alignment: Alignment.topCenter,
@@ -41,9 +42,11 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 10,),
                 Padding(
-                  padding: EdgeInsets.only(top: size.height * .4 - 30),
+                  padding: EdgeInsets.only(top: size.height * .4 - 20),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       ChapterCard(
                         name: "Money",
@@ -69,13 +72,34 @@ class DetailScreen extends StatelessWidget {
                         tag: "Winning is what matters",
                         press: () {},
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
-
+            Padding(
+              padding: EdgeInsets.only(left: 24, right: 24, top: 0, bottom: 50),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  RichText(
+                    text: TextSpan(
+                      style: Theme.of(context).textTheme.display1,
+                      children: [
+                        TextSpan(text: "You might also "),
+                        TextSpan(
+                          text: "like... .",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -104,6 +128,7 @@ class ChapterCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 30),
       margin: EdgeInsets.only(bottom: 16),
       width: size.width - 48,
+      height: 100,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(38.5),
@@ -165,11 +190,11 @@ class BookInfo extends StatelessWidget {
             children: <Widget>[
               Text(
                 "Crushing &",
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.headline4,
               ),
               Text(
                 "Influence",
-                style: Theme.of(context).textTheme.display1.copyWith(
+                style: Theme.of(context).textTheme.headline4.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               ),
@@ -218,7 +243,7 @@ class BookInfo extends StatelessWidget {
         ),
         Image.asset(
           "assets/images/book-1.png",
-          height: 200,
+          height: 170,
         ),
       ],
     );
