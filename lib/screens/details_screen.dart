@@ -12,6 +12,10 @@ class DetailScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Route"),
+      ),
+      // appBar: AppBar(title: Text("AlertDialog Demo")),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,13 +58,35 @@ class DetailScreen extends StatelessWidget {
                         name: "Money",
                         chapterNumber: 1,
                         tag: "Life is about change",
-                        press: () {},
+                        press: () {
+                          Navigator.pop(context);
+                        },
                       ),
                       ChapterCard(
                         name: "Power",
                         chapterNumber: 2,
                         tag: "Everything loves power",
-                        press: () {},
+                        press: () {
+                          AlertDialog(
+                            title: const Text('AlertDialog Title'),
+                            content: SingleChildScrollView(
+                              child: ListBody(
+                                children: const <Widget>[
+                                  Text('This is a demo alert dialog.'),
+                                  Text('Would you like to approve of this message?'),
+                                ],
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                child: const Text('Approve'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        },
                       ),
                       ChapterCard(
                         name: "Influence",
@@ -242,6 +268,33 @@ class ChapterCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void showAlertDialog(BuildContext context) async {
+    String result = await showDialog(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('AlertDialog Demo'),
+          content: Text("Select button you want"),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.pop(context, "OK");
+              },
+            ),
+            FlatButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.pop(context, "Cancel");
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

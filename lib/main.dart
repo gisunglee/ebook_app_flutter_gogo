@@ -1,6 +1,6 @@
 import 'package:ebook_app_flutter_gogo/consttants.dart';
 import 'package:ebook_app_flutter_gogo/screens/home_screen.dart';
-import 'package:ebook_app_flutter_gogo/widgets/book_rating.dart';
+import 'package:ebook_app_flutter_gogo/screens/list.dart';
 import 'package:ebook_app_flutter_gogo/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.display3,
                 children: [
                   TextSpan(
-                    text: "flamin",
+                    text: "칭찬해",
                   ),
                   TextSpan(
                     text: "go.",
@@ -57,7 +57,24 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width * .6,
               child: RoundedButton(
-                text: "start reading",
+                text: "칭찬판 목",
+                fontSize: 20,
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ListScreen();
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * .6,
+              child: RoundedButton(
+                text: "eBooks",
                 fontSize: 20,
                 press: () {
                   Navigator.push(

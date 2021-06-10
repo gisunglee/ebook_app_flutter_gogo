@@ -13,6 +13,9 @@ class HomeScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text("칭찬해"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,36 +49,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 30),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ReadingListCard(
-                          image: "assets/images/book-1.png",
-                          title: "Crushing & Influience",
-                          auth: "Gary Venchuk",
-                          rating: 4.9,
-                          pressDetails: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return DetailScreen();
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                        ReadingListCard(
-                          image: "assets/images/book-2.png",
-                          title: "Top Ten Business Hacks",
-                          auth: "Herman Joel",
-                          rating: 4.8,
-                        ),
-                      ],
-                    ),
-                  ),
+                  SizedBox(height: 5),
+                  bestOfTheDayCard(size: size),
+                  bestOfTheDayCard(size: size),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 24),
                     child: Column(
@@ -85,15 +61,43 @@ class HomeScreen extends StatelessWidget {
                           text: TextSpan(
                             style: Theme.of(context).textTheme.headline4,
                             children: [
-                              TextSpan(text: "Best of the"),
+                              TextSpan(text: "지난 영광"),
                               TextSpan(
-                                text: "day",
+                                text: "들",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
                         ),
-                        bestOfTheDayCard(size: size),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ReadingListCard(
+                                image: "assets/images/book-1.png",
+                                title: "Crushing & Influience",
+                                auth: "Gary Venchuk",
+                                rating: 4.9,
+                                pressDetails: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return DetailScreen();
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                              ReadingListCard(
+                                image: "assets/images/book-2.png",
+                                title: "Top Ten Business Hacks",
+                                auth: "Herman Joel",
+                                rating: 4.8,
+                              ),
+                            ],
+                          ),
+                        ),
                         RichText(
                           text: TextSpan(
                             style: Theme.of(context).textTheme.display1,
@@ -213,7 +217,7 @@ class bestOfTheDayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
       height: 205,
       child: Stack(
@@ -247,7 +251,7 @@ class bestOfTheDayCard extends StatelessWidget {
                   ),
                   SizedBox(height: 5),
                   Text(
-                    "How To Win \nFriends & Influence",
+                    "문제집 풀면 스티커~ 칭찬해",
                     style: Theme.of(context).textTheme.title,
                   ),
                   Text(
@@ -293,7 +297,7 @@ class bestOfTheDayCard extends StatelessWidget {
               height: 40,
               width: size.width * .3,
               child: TwoSideRoundedButton(
-                text: "Read",
+                text: "도장 꾹",
                 radious: 24,
                 press: () {},
               ),
