@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../consttants.dart';
 
 class BookRating extends StatelessWidget {
-  final double score;
+  final int score;
 
   const BookRating({
     Key key,
@@ -28,16 +28,23 @@ class BookRating extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          Icon(
-            Icons.star,
-            color: kIconColor,
-            size: 15,
-          ),
           SizedBox(height: 5),
           Text(
+            "도전",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: kLightBlackColor
+            ),
+          ),
+          Text(
             score.toString(),
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-          )
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.deepOrange
+            ),
+          ),
         ],
       ),
     );

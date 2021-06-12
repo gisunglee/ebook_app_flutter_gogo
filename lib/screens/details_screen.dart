@@ -168,7 +168,7 @@ class DetailScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: <Widget>[
-                                  BookRating(score: 4.9),
+                                  BookRating(score: 9),
                                   SizedBox(
                                     width: 20,
                                   ),
@@ -357,7 +357,7 @@ class BookInfo extends StatelessWidget {
                         onPressed: () {},
                       ),
                       BookRating(
-                        score: 4.9,
+                        score: 7,
                       ),
                     ],
                   )

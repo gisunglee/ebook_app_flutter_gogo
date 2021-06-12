@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                                 image: "assets/images/book-1.png",
                                 title: "Crushing & Influience",
                                 auth: "Gary Venchuk",
-                                rating: 4.9,
+                                rating: 4,
                                 pressDetails: () {
                                   Navigator.push(
                                     context,
@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                                 image: "assets/images/book-2.png",
                                 title: "Top Ten Business Hacks",
                                 auth: "Herman Joel",
-                                rating: 4.8,
+                                rating: 8,
                               ),
                             ],
                           ),
@@ -261,7 +261,7 @@ class bestOfTheDayCard extends StatelessWidget {
                   SizedBox(height: 10),
                   Row(
                     children: <Widget>[
-                      BookRating(score: 4.9),
+                      BookRating(score: 9),
                       SizedBox(
                         width: 10,
                       ),

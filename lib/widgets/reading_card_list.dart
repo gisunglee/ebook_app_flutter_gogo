@@ -9,7 +9,7 @@ class ReadingListCard extends StatelessWidget {
   final String image;
   final String title;
   final String auth;
-  final double rating;
+  final int rating;
   final Function pressDetails;
   final Function pressRead;
 
